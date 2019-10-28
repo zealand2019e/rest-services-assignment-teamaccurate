@@ -20,6 +20,10 @@ namespace ModelLib.Model
 
         }
 
+        public override string ToString()
+        {
+            return base.ToString();
+        }
 
     }
 }

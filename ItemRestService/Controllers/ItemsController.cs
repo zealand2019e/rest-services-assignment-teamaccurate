@@ -86,10 +86,13 @@ namespace ItemRestService.Controllers
         }
 
         [HttpGet]
-        [Route("Quant/{filter?}")]
-        public IEnumerable<Item> GetWithFilter([FromQuery] FilterItem filter)
+        [Route("Quant/{filters?}")]
+        public IEnumerable<Item> GetWithFilter(string filters)
         {
-            return items.FindAll(i => i.Quantity >= filter.LowQuantity && i.Quantity <= filter.HighQuantity);
+            string[] words = filters.Split(" ");            
+            double filter1 = Convert.ToDouble(words[0]);
+            double filter2 = Convert.ToDouble(words[1]);
+            return items.FindAll(i => i.Quantity >= filter1 && i.Quantity <= filter2);
         }
 
         
