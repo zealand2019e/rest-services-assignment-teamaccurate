@@ -25,7 +25,10 @@ namespace ModelLib
             Quantity = quantity;
         }
 
-       
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }
 
