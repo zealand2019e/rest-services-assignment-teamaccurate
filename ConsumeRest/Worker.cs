@@ -38,12 +38,6 @@ namespace ConsumeRest
                 return returnedContent;
             }
         }
-
-    
-        public Worker()
-        {
-
-        }
     
     
     }

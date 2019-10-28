@@ -15,9 +15,14 @@ namespace ConsumeRest
         {
 
             Worker worker = new Worker();
-            IList<Item> Item = await worker.GetAllItemsAsync();
-           // Console.WriteLine(worker.GetAllItemsAsync().ToString());
-            Console.WriteLine(Item.ToString());
+            IList<Item> Items = await worker.GetAllItemsAsync();
+            Item Item = await worker.GetOneItemsAsync(1);
+            foreach(Item i in Items)
+            {
+                Console.WriteLine(i);
+            }
+           
+            Console.WriteLine(Item);
             Console.ReadLine();
         }
     }

@@ -25,16 +25,7 @@ namespace ModelLib
             Quantity = quantity;
         }
 
-        public override string ToString()
-        {
-            return $"{Id} + {Name} + {Quantity} + {Quality}";
-           // return Id + Name + Quality + Quantity;
-        }
-
-        public static implicit operator Task<object>(Item v)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
 
