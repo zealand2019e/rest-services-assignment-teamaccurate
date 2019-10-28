@@ -19,10 +19,10 @@ namespace ConsumeRest
             Item Item = await worker.GetOneItemsAsync(1);
             foreach(Item i in Items)
             {
-                Console.WriteLine(i);
+                Console.WriteLine(i.ToString());
             }
            
-            Console.WriteLine(Item);
+            Console.WriteLine(Item.ToString());
             Console.ReadLine();
         }
     }
