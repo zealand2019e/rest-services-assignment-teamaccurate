@@ -19,7 +19,7 @@ namespace ConsumeRest
 
            await worker.PostItemAsync(12, "Chciken", "High", 24);
             await worker.PutItemAsync(2, 2, "Beens", "Medium", 26);
-           // await worker.DeleteItemAsync(2);
+           await worker.DeleteItemAsync(3);
 
 
             IList<Item> Items = await worker.GetAllItemsAsync();

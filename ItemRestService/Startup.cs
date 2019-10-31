@@ -12,6 +12,7 @@ using Microsoft.Extensions.Options;
 using Swashbuckle;
 using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Cors;
 
 namespace ItemRestService
 {
@@ -35,7 +36,7 @@ namespace ItemRestService
                     Title = "Items API",
                     Version = "v1.0",
                 });
-            });
+            });            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,8 +48,12 @@ namespace ItemRestService
             }
             app.UseSwagger();
             app.UseSwaggerUI(c =>
-            c.SwaggerEndpoint("/swagger/v1/swagger.json", "Items API v1.0")
-            );
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "Items API v1.0"));
+
+            app.UseCors(options =>
+            {
+                options.AllowAnyOrigin().AllowAnyMethod();
+            });
             app.UseMvc();
         }
     }
