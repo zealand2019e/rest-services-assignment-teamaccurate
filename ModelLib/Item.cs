@@ -27,7 +27,7 @@ namespace ModelLib
 
         public override string ToString()
         {
-            return base.ToString();
+            return $"Id: {Id}, Name: {Name}, QUality: {Quality}, Quantity: {Quantity}";
         }
     }
 }

@@ -39,6 +39,36 @@ namespace ConsumeRest
             }
         }
     
+        
+        public async Task DeleteItemAsync(int id)
+        {
+            using(HttpClient client = new HttpClient())
+            {
+                await client.DeleteAsync(URI + $"/{id}");
+            }
+        }
+ 
+        public async Task PostItemAsync(int id, string name, string quality, double quantity)
+        {
+           
+            Item ToPostItem = new Item( id, name, quality, quantity);
+            using (HttpClient client = new HttpClient())
+            {
+                string content = JsonConvert.SerializeObject(ToPostItem);
+                await client.PostAsync(URI, new StringContent(content,Encoding.UTF8, "application/json"));
+            }
+        }
+    
+        public async Task PutItemAsync(int id, int newID, string name, string quality, double quantity)
+        {
+            using(HttpClient client = new HttpClient())
+            {
+                Item ItemToChange = new Item(newID, name, quality, quantity);
+                string content = JsonConvert.SerializeObject(ItemToChange);
+               await client.PutAsync(URI + $"/{id}", new StringContent(content, Encoding.UTF8, "application/json"));
+            }
+
+        }
     
     }
 }
